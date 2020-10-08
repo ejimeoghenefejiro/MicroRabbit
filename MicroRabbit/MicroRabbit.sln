@@ -15,9 +15,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentatio
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroRabbit.Domain.Core", "MicroRabbit.Domain.Core\MicroRabbit.Domain.Core.csproj", "{CF15EE3F-8127-49C4-9D0F-962CD8D0DBB5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroRabbit.Infra.Bus", "MicroRabbit.Infra.Bus\MicroRabbit.Infra.Bus.csproj", "{82BE8D97-DCC9-404B-B6B4-61D8BA5E9BAF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroRabbit.Infra.Bus", "MicroRabbit.Infra.Bus\MicroRabbit.Infra.Bus.csproj", "{82BE8D97-DCC9-404B-B6B4-61D8BA5E9BAF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroRabbit.Infra.IoC", "MicroRabbit.Infra.IoC\MicroRabbit.Infra.IoC.csproj", "{83FE6FC0-1EA1-4C03-9235-FDE55EFA234F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroRabbit.Infra.IoC", "MicroRabbit.Infra.IoC\MicroRabbit.Infra.IoC.csproj", "{83FE6FC0-1EA1-4C03-9235-FDE55EFA234F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Banking", "Banking", "{EB4A6001-52BD-4DD8-868E-D5628F25B0C5}"
 EndProject
@@ -29,13 +29,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{4AEF620B-5378-4219-AC50-0F8324DCCFB1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroRabbit.Banking.API", "MicroRabbit.Banking.API\MicroRabbit.Banking.API.csproj", "{00D85284-EB98-4A18-BB8D-30542D4A3DE0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroRabbit.Banking.API", "MicroRabbit.Banking.API\MicroRabbit.Banking.API.csproj", "{00D85284-EB98-4A18-BB8D-30542D4A3DE0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroRabbit.Banking.Application", "MicroRabbit.Banking.Application\MicroRabbit.Banking.Application.csproj", "{C9FE41F1-35FC-4AB8-8948-6D3FCE78F381}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroRabbit.Banking.Application", "MicroRabbit.Banking.Application\MicroRabbit.Banking.Application.csproj", "{C9FE41F1-35FC-4AB8-8948-6D3FCE78F381}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroRabbit.Banking.Data", "MicroRabbit.Banking.Data\MicroRabbit.Banking.Data.csproj", "{B5359165-FBC7-49D5-8005-6CD28EB9B0EA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroRabbit.Banking.Data", "MicroRabbit.Banking.Data\MicroRabbit.Banking.Data.csproj", "{B5359165-FBC7-49D5-8005-6CD28EB9B0EA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiroRabbit.Banking.Domain", "MiroRabbit.Banking.Domain\MiroRabbit.Banking.Domain.csproj", "{AF3A54CC-1ABF-4061-B865-F02213596416}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MiroRabbit.Banking.Domain", "MiroRabbit.Banking.Domain\MiroRabbit.Banking.Domain.csproj", "{AF3A54CC-1ABF-4061-B865-F02213596416}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
