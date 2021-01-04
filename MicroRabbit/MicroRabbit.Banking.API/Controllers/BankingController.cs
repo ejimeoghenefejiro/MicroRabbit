@@ -14,7 +14,7 @@ namespace MicroRabbit.Banking.API.Controllers
     public class BankingController : ControllerBase
     {
         private readonly IAccountService _accountService;
-         public BankingController(IAccountService accountService)
+        public BankingController(IAccountService accountService)
         {
             _accountService = accountService;     
         }

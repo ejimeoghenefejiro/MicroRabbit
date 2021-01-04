@@ -16,7 +16,7 @@ namespace MicroRabbit.Infra.Bus
     public sealed class RabbitMQBus : IEventBus// A sealled class cannot be inherited 
     {
         private readonly IMediator _mediator;
-        private readonly Dictionary<string, List<Type>> _handlers;
+        private readonly Dictionary<string, List<Type>> _handlers; // dictionary of handlers 
         private readonly List<Type> _eventTypes; // generic so it can handle any type of events. We dont have to rewrite method everytime we need to create an event
 
         public RabbitMQBus( IMediator mediator)
@@ -31,13 +31,14 @@ namespace MicroRabbit.Infra.Bus
             return _mediator.Send(command); // expecting a generic type to send the command 
         }
 
+        //Publish message to RabbittMQ Server
         public void Publish<T>(T @event) where T : Event
         {
             var factory = new ConnectionFactory() { HostName= "localhost" };
             using (var connection = factory.CreateConnection())
             using (var channel = connection.CreateModel())
             {
-                var eventName = @event.GetType().Name; // get event name  by using reflection
+                var eventName = @event.GetType().Name; // get event name  by using reflection. I can take any name and extra the name of that event
                 channel.QueueDeclare(eventName, false, false, false, null);
 
                 var message = JsonConvert.SerializeObject(@event);
@@ -52,7 +53,7 @@ namespace MicroRabbit.Infra.Bus
             where T : Event
             where TH : IEventHandler<T>
         {
-            var eventName = typeof(T).Name;
+            var eventName = typeof(T).Name; // Making use of generic and reflection
             var handlerType = typeof(TH);
 
             if (!_eventTypes.Contains(typeof(T)))
@@ -95,10 +96,10 @@ namespace MicroRabbit.Infra.Bus
 
 
         }
-
+        // The Consumer_Received is listening for incoming messages 
         private async Task Consumer_Received(object sender, BasicDeliverEventArgs e)
         {
-            var eventName = e.RoutingKey;
+            var eventName = e.RoutingKey;  // Get the event name through the routing key. The queue  has a routing key
             var message = Encoding.UTF8.GetString(e.Body);
 
             try
@@ -112,15 +113,16 @@ namespace MicroRabbit.Infra.Bus
             }
         }
 
+        // Dynamically  create handler based on the handler type in our dictionary  of handlers and then invoke event handler for that type of event
         private async Task ProcessEvent(string eventName, string message)
         {
-            if (_handlers.ContainsKey(eventName))
+            if (_handlers.ContainsKey(eventName))  // The key for the dictionary is eventName
             {
-                var subscriptions = _handlers[eventName];
-                foreach (var subscription in subscriptions)
+                var subscriptions = _handlers[eventName]; // This is a dictionary list of type 
+                foreach (var subscription in subscriptions) // Looping through dictionary list of type
                 {
-                    var handler = Activator.CreateInstance(subscription); //dynamic approaches to our generics
-                    if (handler == null) continue;
+                    var handler = Activator.CreateInstance(subscription); //dynamic approaches to our generics. With the CreateInstance is like create new Class
+                    if (handler == null) continue; // If the handler is null continue  looping through until we find one 
                     var eventType = _eventTypes.SingleOrDefault(t => t.Name == eventName);
                     var @event = JsonConvert.DeserializeObject(message, eventType);
 

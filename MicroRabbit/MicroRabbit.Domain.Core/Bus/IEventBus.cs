@@ -11,6 +11,7 @@ namespace MicroRabbit.Domain.Core.Bus
     {
         Task SendCommand<T>(T command) where T : Command;
 
+        // the @ is used to negate reserved keyword 
         void Publish<T>(T @event) where T : Event;
 
         void Subscribe<T, TH>()
